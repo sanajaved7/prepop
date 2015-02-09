@@ -2,12 +2,12 @@
 {% block head %}
 {{super()}}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet"/>
+<!-- <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet"/> -->
 {% endblock %}
 
 {% block body %}
 <div class="site-wrapper">
-<div class="container">
+<div class="container" style="text-align:center">
 <div class="jumbotron">
     <h1 style="color:navy">Facebook and Twitter Content Prepopulater</h1>
     <h3 style="color:navy">Want to prepopulate a Facebook post or a tweet so that you can share it one click? <br/> <br/>You're in the right place!</h3>
@@ -15,14 +15,14 @@
 <!-- </div>
 <div class="container"> -->
     <form method="post" action="/">
-      <input type="radio" name="socialnetwork" value="Twitter"/>Twitter<br/>
-      <input type="radio" name="socialnetwork"value="Facebook" />Facebook<br />
+      <input type="radio" name="socialnetwork" value="Twitter"/> Twitter<br/>
+      <input type="radio" name="socialnetwork"value="Facebook" /> Facebook<br />
+      <br/>
       <textarea name="content" rows="4" cols="20"></textarea><br/>
-      <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+      <button type="submit" class="btn btn-lg btn-primary">Submit</button><br/> <br/>
     </form>
     {% if content %}
     <div class="alert alert-info" role="alert"><strong>Here is your prepopulated content!</strong></div>
-    <br>
         <div id="foo" style="display: block; ">
             <h3><textarea name="code" rows="1" readonly="readonly" onmouseover="this.focus();this.select()">{{content}}</textarea></h3>
         </div>
