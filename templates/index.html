@@ -1,22 +1,39 @@
-<html>
+{% extends "bootstrap/base.html" %}
+{% block head %}
+{{super()}}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet"/>
+{% endblock %}
 
-<head>
-
-</head>
-<body>
-<h1>Facebook and Twitter Content Prepopulater</h1>
-<h3>Want to prepopulate a Facebook post or a tweet so that you can share it one click? You're in the right place!</h3>
-
-<form method="post" action="/">
-  <input type="radio" name="socialnetwork" value="Twitter"/>Twitter<br/>
-  <input type="radio" name="socialnetwork"value="Facebook" />Facebook<br />
-  <textarea name="content" rows="4" cols="20"></textarea>
-  <input type="submit" />
-</form>
-{% if content %}
-<h2> Here is your prepopulated content!</h2>
-<br>
-{{content}}
-{% endif %}
-</body>
+{% block body %}
+<div class="site-wrapper">
+<div class="container">
+<div class="jumbotron">
+    <h1 style="color:navy">Facebook and Twitter Content Prepopulater</h1>
+    <h3 style="color:navy">Want to prepopulate a Facebook post or a tweet so that you can share it one click? <br/> <br/>You're in the right place!</h3>
+</div>
+<!-- </div>
+<div class="container"> -->
+    <form method="post" action="/">
+      <input type="radio" name="socialnetwork" value="Twitter"/>Twitter<br/>
+      <input type="radio" name="socialnetwork"value="Facebook" />Facebook<br />
+      <textarea name="content" rows="4" cols="20"></textarea><br/>
+      <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+    </form>
+    {% if content %}
+    <div class="alert alert-info" role="alert"><strong>Here is your prepopulated content!</strong></div>
+    <br>
+        <div id="foo" style="display: block; ">
+            <h3><textarea name="code" rows="1" readonly="readonly" onmouseover="this.focus();this.select()">{{content}}</textarea></h3>
+        </div>
+        <script>
+            $('textarea').on('focus', function() {
+                this.setSelectionRange(0, this.value.length);
+            });
+            $('#foo').find('textarea').first().focus();
+        </script>
+        {% endif %}
+</div>
+</div>
+{% endblock %}
 
