@@ -1,14 +1,20 @@
 <html>
 
 <head>
+
+</head>
 <body>
 
 <form method="post" action="/">
   <input type="radio" name="socialnetwork" value="Twitter"/>Twitter<br/>
   <input type="radio" name="socialnetwork"value="Facebook" />Facebook<br />
+  <textarea name="content" rows="4" cols="20"></textarea>
   <input type="submit" />
 </form>
-
+{% if content %}
+<h2> Here is your prepopulated content!</h2>
+<br>
+{{content}}
+{% endif %}
 </body>
 
-</head>
