@@ -17,9 +17,9 @@
     <form method="post" action="/">
       <input type="radio" name="socialnetwork" value="Twitter"/> Twitter<br/>
       <input type="radio" name="socialnetwork"value="Facebook" /> Facebook<br />
-      <br/>
-      <textarea name="content" rows="4" cols="20"></textarea><br/>
-      <button type="submit" class="btn btn-lg btn-primary">Submit</button><br/> <br/>
+      <span id="chars">0</span> <br/>
+      <textarea name="content" id="myinput" rows="4" cols="20"></textarea><br/>
+      <button type="submit" class="btn btn-lg btn-primary">Submit</button><br/> 
     </form>
     {% if content %}
     <div class="alert alert-info" role="alert"><strong>Here is your prepopulated content!</strong></div>
@@ -35,5 +35,11 @@
         {% endif %}
 </div>
 </div>
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='counter.js') }}"></script>
 {% endblock %}
+
+{% endblock %}
+
 
