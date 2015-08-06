@@ -5,7 +5,6 @@ import prepop
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
-
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.form:
